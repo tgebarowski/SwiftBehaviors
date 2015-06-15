@@ -26,26 +26,26 @@ import UIKit
 class SonarButtonsViewController: UIViewController {
 
     @IBAction func buttonOnePressed(sender: AnyObject) {
-        println("Button One Pressed")
+        print("Button One Pressed")
     }
 
     @IBAction func buttonOneReleased(sender: AnyObject) {
-        println("Button One Released")
+        print("Button One Released")
     }
 
     @IBAction func buttonTwoPressed(sender: AnyObject) {
-        println("Button Two Pressed")
+        print("Button Two Pressed")
     }
 
     @IBAction func buttonTwoReleased(sender: AnyObject) {
-        println("Button Two Released")
+        print("Button Two Released")
     }
 
     @IBAction func buttonThreePressed(sender: AnyObject) {
-        println("Button Three Pressed")
+        print("Button Three Pressed")
     }
 
     @IBAction func buttonThreeReleased(sender: AnyObject) {
-        println("Button Three Released")
+        print("Button Three Released")
     }
 }

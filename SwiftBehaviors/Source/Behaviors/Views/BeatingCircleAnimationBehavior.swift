@@ -47,7 +47,6 @@ class BeatingCircle : UIView {
     }
 
     override func drawRect(rect: CGRect) {
-        var context = UIGraphicsGetCurrentContext();
         color.set(); path.fill()
     }
 
@@ -99,13 +98,13 @@ class BeatingCircleAnimationBehavior : ViewBehavior {
         self.circleView = BeatingCircle(radius: self.radius,
             color: self.circleColor)
 
-        self.circleView!.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.circleView!.translatesAutoresizingMaskIntoConstraints = false
         targetView.addSubview(circleView!)
 
         if (!caption.isEmpty) {
             captionLabel = UILabel()
             captionLabel?.text = self.caption
-            captionLabel?.setTranslatesAutoresizingMaskIntoConstraints(false)
+            captionLabel?.translatesAutoresizingMaskIntoConstraints = false
             captionLabel?.hidden = true
             targetView.addSubview(captionLabel!)
 

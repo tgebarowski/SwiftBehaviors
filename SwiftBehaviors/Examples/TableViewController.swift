@@ -24,7 +24,7 @@
 import UIKit
 
 
-class TableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
+class TableViewController: UITableViewController, UINavigationControllerDelegate {
 
     @IBOutlet var cellExpansionBehavior: TableViewCellExpansionBehavior?
 
@@ -56,10 +56,11 @@ class TableViewController: UITableViewController, UITableViewDelegate, UITableVi
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-        cell.backgroundColor = self.colors[indexPath.row];
-        cell.selectionStyle = .None
-        // Configure the cell
-        return cell
+        if let cell = tableView.dequeueReusableCellWithIdentifier("Cell") {
+            cell.backgroundColor = self.colors[indexPath.row];
+            cell.selectionStyle = .None
+            return cell
+        }
+        return UITableViewCell()
     }
 }

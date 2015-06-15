@@ -241,6 +241,7 @@
 		F152B0051A81061E00C0A2FA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = codica;
 				TargetAttributes = {

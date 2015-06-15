@@ -35,8 +35,7 @@ class BlurredViewBehavior : ViewBehavior {
     override func targetViewDidLoad(targetView: UIView) {
 
         if let presentedVC = targetVC {
-            // iOS 8
-            if NSClassFromString("UIVisualEffectView") != nil {
+            if #available(iOS 8.0, *) {
                 dispatch_async(dispatch_get_main_queue(), {
                     presentedVC.view.backgroundColor = UIColor.clearColor()
                     let blurEffect = UIBlurEffect(style: .Dark)
@@ -44,7 +43,6 @@ class BlurredViewBehavior : ViewBehavior {
                     effectView.frame = presentedVC.view.frame
                     presentedVC.view.insertSubview(effectView, atIndex: 0)
                 })
-            // iOS 7
             } else {
                 if let presentingView = presentedVC.presentingViewController?.view {
                     dispatch_async(dispatch_get_main_queue(), {

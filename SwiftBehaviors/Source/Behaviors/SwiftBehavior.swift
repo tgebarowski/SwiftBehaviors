@@ -45,11 +45,11 @@ public class SwiftBehavior : UIControl {
 
     func bindLifetimeToObject(object: AnyObject) -> Void {
         objc_setAssociatedObject(object, &_owner, self,
-            objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC));
+                                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
     func releaseLifetimeFromObject(object: AnyObject) -> Void {
         objc_setAssociatedObject(object, &_owner, nil,
-            objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC));
+                                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }

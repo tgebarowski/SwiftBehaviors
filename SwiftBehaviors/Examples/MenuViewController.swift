@@ -25,7 +25,7 @@
 
 import UIKit
 
-class MenuViewController: UITableViewController, UITableViewDelegate {
+class MenuViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
@@ -44,45 +44,40 @@ class MenuViewController: UITableViewController, UITableViewDelegate {
     // MARK: - IBActions
 
     func openCollectionViewTransitionDemo() {
-        if let vc = UIStoryboard.collectionViewStoryboard().instantiateInitialViewController() as? UIViewController {
+        if let vc = UIStoryboard.collectionViewStoryboard().instantiateInitialViewController() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
     func openTableViewTransitionDemo() {
-        if let vc = UIStoryboard.tableViewStoryboard().instantiateInitialViewController() as? UIViewController {
+        if let vc = UIStoryboard.tableViewStoryboard().instantiateInitialViewController() {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
     func openTranslucentViewDemo() {
-        if let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("TranslucentViewController") as? UIViewController {
-            self.presentViewController(vc, animated: true, completion: nil)
-        }
+        let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("TranslucentViewController")
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 
     func openBeatingCircleDemo() {
-        if let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("BeatingCircleViewController") as? UIViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("BeatingCircleViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func openFadeOutViewDemo() {
-        if let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("FadeOutViewController") as? UIViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("FadeOutViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func openSonarButtons() {
-        if let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("SonarButtonsViewController") as? UIViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("SonarButtonsViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func openExclusiveButtons() {
-        if let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("ExclusiveButtonsViewController") as? UIViewController {
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = UIStoryboard.examplesStoryboard().instantiateViewControllerWithIdentifier("ExclusiveButtonsViewController")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

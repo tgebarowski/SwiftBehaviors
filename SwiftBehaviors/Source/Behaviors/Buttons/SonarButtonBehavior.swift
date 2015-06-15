@@ -75,7 +75,7 @@ public class SonarButtonBehavior : ViewBehavior {
 
         if let layers = ringLayers[button] {
             for ringLayer in layers {
-                var animationGroup = singleRingAnimation(button, ringLayer: ringLayer, contentView: contentView)
+                let animationGroup = singleRingAnimation(button, ringLayer: ringLayer, contentView: contentView)
                 animationGroup.beginTime = CACurrentMediaTime() + timeOffset
                 ringLayer.addAnimation(animationGroup, forKey: "ring-\(timeOffset)")
                 timeOffset += CFTimeInterval(CGFloat(duration) / CGFloat(ringsAtOnce))
@@ -92,12 +92,12 @@ public class SonarButtonBehavior : ViewBehavior {
     }
 
     private func addSingleRingLayer(button: UIButton, contentView: UIView) {
-        var ringLayer = CAShapeLayer()
+        let ringLayer = CAShapeLayer()
 
 
-        var buttonFrame = buttonFrameForMainView(button, contentView: contentView)
+        let buttonFrame = buttonFrameForMainView(button, contentView: contentView)
 
-        var container = CGRect(x: CGRectGetMidX(buttonFrame) - CGRectGetHeight(buttonFrame) / 2,
+        let container = CGRect(x: CGRectGetMidX(buttonFrame) - CGRectGetHeight(buttonFrame) / 2,
                                y: CGRectGetMinY(buttonFrame),
                                width: CGRectGetHeight(buttonFrame),
                                height: CGRectGetHeight(buttonFrame))
@@ -120,9 +120,9 @@ public class SonarButtonBehavior : ViewBehavior {
 
         let maxSize = CGRectGetWidth(contentView.frame);
 
-        var buttonFrame = buttonFrameForMainView(button, contentView: contentView)
+        let buttonFrame = buttonFrameForMainView(button, contentView: contentView)
 
-        var container = CGRect(x: CGRectGetMidX(buttonFrame) - CGRectGetHeight(buttonFrame) / 2,
+        let container = CGRect(x: CGRectGetMidX(buttonFrame) - CGRectGetHeight(buttonFrame) / 2,
             y: CGRectGetMinY(buttonFrame),
             width: CGRectGetHeight(buttonFrame),
             height: CGRectGetHeight(buttonFrame))
@@ -132,18 +132,18 @@ public class SonarButtonBehavior : ViewBehavior {
             width: CGRectGetWidth(container) + CGFloat(maxSize),
             height: CGRectGetHeight(container) + CGFloat(maxSize))
 
-        var pathAnim = CABasicAnimation(keyPath: "path")
+        let pathAnim = CABasicAnimation(keyPath: "path")
         pathAnim.toValue = UIBezierPath(ovalInRect: newContainer).CGPath;
 
-        var fadeAnim = CABasicAnimation(keyPath: "opacity")
+        let fadeAnim = CABasicAnimation(keyPath: "opacity")
         fadeAnim.fromValue = 0.7
         fadeAnim.toValue = 0
 
-        var colorAnim = CABasicAnimation(keyPath: "strokeColor")
+        let colorAnim = CABasicAnimation(keyPath: "strokeColor")
         colorAnim.fromValue = self.ringColorStart.CGColor;
         colorAnim.fromValue = self.ringColorEnd.CGColor;
 
-        var group = CAAnimationGroup()
+        let group = CAAnimationGroup()
         group.animations = [pathAnim, fadeAnim, colorAnim];
         group.duration = duration; /* seconds */
         group.repeatCount = Float.infinity

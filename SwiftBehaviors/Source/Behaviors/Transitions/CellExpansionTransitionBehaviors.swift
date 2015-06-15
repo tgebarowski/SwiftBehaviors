@@ -99,19 +99,20 @@ private class CellExpansionTransitionAnimator : NSObject, UIViewControllerAnimat
         if let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
            let cell = animatedCell,
-           let scrollView = fromVC.view as? UIScrollView ?? (fromVC as? UICollectionViewController)?.collectionView {
-                transitionContext.containerView().addSubview(toVC.view)
+           let scrollView = fromVC.view as? UIScrollView ?? (fromVC as? UICollectionViewController)?.collectionView,
+           let containerView = transitionContext.containerView() {
+                containerView.addSubview(toVC.view)
                 toVC.view.alpha = 0
 
                 /* Make UIView which will be used to animate expanding and covering cell */
-                var cellCover = UIView(frame: fromVC.view.frame);
+                let cellCover = UIView(frame: fromVC.view.frame);
                 cellCover.backgroundColor = cell.backgroundColor
-                transitionContext.containerView().addSubview(cellCover)
+                containerView.addSubview(cellCover)
 
                 /*
                 * Adjust selectedCell frame taking into account parents UIScrollView insets
                 */
-                var selectedRect = CGRectMake(0, cell.frame.origin.y - scrollView.contentOffset.y ?? 0,
+                let selectedRect = CGRectMake(0, cell.frame.origin.y - scrollView.contentOffset.y ?? 0,
                                               scrollView.bounds.width, cell.frame.height);
 
                 let upperRect = CGRectMake(0, 0,
@@ -123,18 +124,18 @@ private class CellExpansionTransitionAnimator : NSObject, UIViewControllerAnimat
                                            scrollView.frame.height - upperRect.size.height - selectedRect.height)
 
 
-                var selectedCell = UIImageView(image: scrollView.takeSnapshot(selectedRect))
-                var upperCellsView = UIImageView(image: scrollView.takeSnapshot(upperRect))
-                var lowerCellsView = UIImageView(image: scrollView.takeSnapshot(lowerRect))
+                let selectedCell = UIImageView(image: scrollView.takeSnapshot(selectedRect))
+                let upperCellsView = UIImageView(image: scrollView.takeSnapshot(upperRect))
+                let lowerCellsView = UIImageView(image: scrollView.takeSnapshot(lowerRect))
                 selectedCell.frame = selectedRect
                 upperCellsView.frame = upperRect
                 lowerCellsView.frame = lowerRect
 
                 /* Add animated cell to transition view */
-                transitionContext.containerView().addSubview(selectedCell)
+                containerView.addSubview(selectedCell)
                 /* Add screenshots of cells which are animated up/down */
-                transitionContext.containerView().addSubview(upperCellsView)
-                transitionContext.containerView().addSubview(lowerCellsView)
+                containerView.addSubview(upperCellsView)
+                containerView.addSubview(lowerCellsView)
 
                 UIView.animateWithDuration(duration,
                     animations: {
@@ -157,7 +158,7 @@ private class CellExpansionTransitionAnimator : NSObject, UIViewControllerAnimat
         }
     }
 
-    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return duration
     }
 }

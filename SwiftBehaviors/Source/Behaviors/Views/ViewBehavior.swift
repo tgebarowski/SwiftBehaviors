@@ -46,8 +46,8 @@ public class ViewBehavior : SwiftBehavior {
     /*
      * This is invoked after view frame is set (after target's viewDidLoad)
      */
-    override public func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject,
-        change: [NSObject : AnyObject],
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?,
+        change: [NSObject : AnyObject]?,
         context: UnsafeMutablePointer<Void>)
     {
         removeObserver(self, forKeyPath: kViewFrame)

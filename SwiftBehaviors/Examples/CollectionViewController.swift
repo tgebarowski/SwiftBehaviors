@@ -24,8 +24,7 @@
 import UIKit
 
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout,
-                                UICollectionViewDelegate {
+class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var cellExpansionBehavior: CollectionViewCellExpansionBehavior?
 
@@ -60,7 +59,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     //3
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
         cell.backgroundColor = self.colors[indexPath.row];
         return cell
     }
