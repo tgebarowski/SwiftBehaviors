@@ -135,6 +135,8 @@ Due to this limitation Transition Cell Expansion Behavior has to provide a bit l
 
 ## Release Notes
 
+### 1.1
+Added compatibility with Swift 2.0 and iOS 9 support
 
 ### 1.0
 Initial version
