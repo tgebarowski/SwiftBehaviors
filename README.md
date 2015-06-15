@@ -132,3 +132,9 @@ If you have your own UINavigationControllerDelegate you may still use it by sett
 
 Note: The multiplexer pattern that could be applied here and described in objc.io article is not possible in pure Swift due to lack of forwardInvocation:(NSInvocation *) equivalent.
 Due to this limitation Transition Cell Expansion Behavior has to provide a bit limited approach towards delegating UINavigationControllerDelegate.
+
+## Release Notes
+
+
+### 1.0
+Initial version
