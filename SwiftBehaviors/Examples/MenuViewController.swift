@@ -27,29 +27,6 @@ import UIKit
 
 class MenuViewController: UITableViewController, UITableViewDelegate {
 
-/*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        //counter.intValue = 50
-
-        let c1 = UIColor(red: 77/255.0, green: 219/255, blue: 178/255, alpha: 1.0);
-        let c2 = UIColor(red: 77/255.0, green: 184/255, blue: 172/255, alpha: 1.0);
-        let c3 = UIColor(red: 77/255.0, green: 157/255, blue: 162/255, alpha: 1.0);
-        let c4 = UIColor(red: 255/255.0, green: 240/255, blue: 24/255, alpha: 1.0);
-
-        chart.animated = true
-        chart.components = [DonutChart.Component(caption: "Value 1", value: 10, color: c1),
-                            DonutChart.Component(caption: "Value 2", value: 25, color: c2),
-                            DonutChart.Component(caption: "Value 3", value: 30, color: c3),
-                            DonutChart.Component(caption: "Value 3", value: 15, color: c4)]
-
-        NSTimer.scheduledTimerWithTimeInterval(0.15, target: self, selector: Selector("addSample"),
-                                               userInfo: nil, repeats: true)
-
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-*/
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (0, 0): openCollectionViewTransitionDemo()
