@@ -31,9 +31,9 @@ import UIKit
 
 public class SwiftBehavior : UIControl {
     private var AssociatedObjectHandle: UInt8 = 0
-    private var _owner: AnyObject?
+    private weak var _owner: AnyObject?
 
-    @IBOutlet var owner: AnyObject! {
+    @IBOutlet weak var owner: AnyObject! {
         willSet {
             if _owner != nil {
                 releaseLifetimeFromObject(_owner!)
